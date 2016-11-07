@@ -2,7 +2,8 @@ package homework2;
 
 /** Student.java (UTF-8)
  *
- * UPDATE: add final keywords
+ * UPDATE: add final keywords to get-methods
+ * and some specific instance field
  *
  * Student类中定义了三个惊静态常数用于处理无分数，
  * 分数的最大值和最小值的情况。
@@ -25,8 +26,8 @@ public class _14211519_叶文霆_1_Student
     static public final int MIN_MARK = 0;
 
     /* Student's info */
-    private String studentNumber = null;
-    private String studentName = null;
+    private final String studentNumber;
+    private final String studentName;
     private int markForMaths = NO_MARK;
     private int markForEnglish = NO_MARK;
     private int markForScience = NO_MARK;
