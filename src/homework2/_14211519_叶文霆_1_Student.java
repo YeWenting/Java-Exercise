@@ -2,13 +2,14 @@ package homework2;
 
 /** Student.java (UTF-8)
  *
- * UPDATE:新增ScoreException, StudentNumberException.
+ * UPDATE: add final keywords
  *
  * Student类中定义了三个惊静态常数用于处理无分数，
  * 分数的最大值和最小值的情况。
  * 在设置分数的方法中考虑了无意义的参数。
  * toString()方法中使用了高效的StringBuilder
  * 进行字符串的处理。
+ * 新增ScoreException, StudentNumberException.
  * Created by YeWenting on 22/10/2016.
  */
 
@@ -48,13 +49,13 @@ public class _14211519_叶文霆_1_Student
     }
 
     /* Wrapper for get functions */
-    public String getNumber() { return studentNumber; }
-    public String getName(){ return studentName; }
-    public int getMarkMaths(){ return markForMaths; }
-    public int getMarkEnglish(){
+    public final String getNumber() { return studentNumber; }
+    public final String getName(){ return studentName; }
+    public final int getMarkMaths(){ return markForMaths; }
+    public final int getMarkEnglish(){
         return markForEnglish;
     }
-    public int getMarkScience(){
+    public final int getMarkScience(){
         return markForScience;
     }
     public double calculateAverage()

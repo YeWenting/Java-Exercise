@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /** StudentList.java (UTF-8)
  *
+ *  UPDATE: Add final keywords
+ *
  *  使用基于数组的 ArrayList 适配器实现StudentList类，
  *  保证了快速的随机访问的同时，也支持高效的add()操作和
  *  扩容操作。
@@ -25,17 +27,17 @@ public class _14211519_叶文霆_1_StudentList
     /*************************************
      * Wrapper for get methods
      *************************************/
-    public int getTotal() { return list.size(); }
+    public final int getTotal() { return list.size(); }
 
-    public boolean isEmpty() { if (list.size() == 0) return true; return false; }
+    public final boolean isEmpty() { if (list.size() == 0) return true; return false; }
 
-    public _14211519_叶文霆_1_Student getItem(int no)
+    public final _14211519_叶文霆_1_Student getItem(int no)
     {
         if (no < 0 || no >= list.size()) return null;
         return list.get(no);
     }
 
-    public _14211519_叶文霆_1_Student getItem(String number)
+    public final _14211519_叶文霆_1_Student getItem(String number)
     {
         int index = find(number);
 
@@ -46,21 +48,21 @@ public class _14211519_叶文霆_1_StudentList
     /*************************************
      * Wrapper for array operation methods
      *************************************/
-    public boolean add(_14211519_叶文霆_1_Student stu)
+    public final boolean add(_14211519_叶文霆_1_Student stu)
     {
         if (list.size() >= maxStudentNum) return false;
         list.add(stu);
         return true;
     }
 
-    public boolean remove(int no)
+    public final boolean remove(int no)
     {
         if (no < 0 || no >= list.size()) return false;
         list.remove(no);
         return true;
     }
 
-    public boolean remove(String number) {
+    public final boolean remove(String number) {
         int index = find(number);
 
         if (index < 0) return false;
@@ -68,7 +70,7 @@ public class _14211519_叶文霆_1_StudentList
         return true;
     }
 
-    public int find(String number)
+    public final int find(String number)
     {
         for (int i = 0; i < list.size(); i++)
             if (list.get(i).getNumber().equals(number))
