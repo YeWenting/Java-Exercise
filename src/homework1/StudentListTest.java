@@ -48,7 +48,7 @@ class UserInterface
         int index;
 
         System.out.print("请输入要删除第几个学生：");
-        index = Keyboard.getInt(System.in);
+        index = Keyboard.nextInt(System.in);
         if (!testStudentList.remove(index - 1)) System.out.println("对不起，没有对应的学生");
         else System.out.println("删除成功！");
     }
@@ -70,7 +70,7 @@ class UserInterface
         _14211519_叶文霆_1_Student student;
 
         System.out.print("请输入学生位置：");
-        index = Keyboard.getInt(System.in);
+        index = Keyboard.nextInt(System.in);
 
         student = testStudentList.getItem(index - 1);
         if (student == null) System.out.println("对不起，没有对应的学生");

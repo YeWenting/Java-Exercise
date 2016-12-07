@@ -14,15 +14,15 @@ import java.util.InputMismatchException;
  */
 public class Keyboard
 {
-    static public int getInt(InputStream input)
+    static public int nextInt(InputStream input)
     {
-        Scanner in = new Scanner(input);
         int x;
 
         while (true)
         {
             try
             {
+                Scanner in = new Scanner(input);
                 x = in.nextInt();
                 break;
             }
@@ -31,19 +31,18 @@ public class Keyboard
                 System.out.println("请输入数字!");
             }
         }
-        in.close();
         return x;
     }
 
     static public double nextDouble(InputStream input)
     {
-        Scanner in = new Scanner(input);
         double x;
 
         while (true)
         {
             try
             {
+                Scanner in = new Scanner(input);
                 x = in.nextDouble();
                 break;
             }
@@ -52,7 +51,6 @@ public class Keyboard
                 System.out.println("!");
             }
         }
-        in.close();
         return x;
     }
 
