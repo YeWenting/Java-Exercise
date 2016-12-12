@@ -3,17 +3,17 @@ package homework3;
 /**
  * Created by YeWenting on 06/12/2016.
  */
-public abstract class Employee
+public abstract class _14211519_叶文霆_3_Employee
 {
     private String firstName, lastName;
     private final String socialSecurityNumber;
 
-    public Employee()
+    public _14211519_叶文霆_3_Employee()
     {
         socialSecurityNumber = lastName = firstName = null;
     }
 
-    public Employee(String fn, String ln, String ssn)
+    public _14211519_叶文霆_3_Employee(String fn, String ln, String ssn)
     {
         firstName = fn;
         lastName = ln;

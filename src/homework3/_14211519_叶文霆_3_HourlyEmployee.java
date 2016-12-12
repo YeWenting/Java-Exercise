@@ -3,12 +3,12 @@ package homework3;
 /**
  * Created by YeWenting on 06/12/2016.
  */
-public class HourlyEmployee extends Employee
+public class _14211519_叶文霆_3_HourlyEmployee extends _14211519_叶文霆_3_Employee
 {
     private int wage, hours;
 
-    public HourlyEmployee() { wage = hours = 0; }
-    public HourlyEmployee(String fn, String ln, String ssn, int wa, int ho)
+    public _14211519_叶文霆_3_HourlyEmployee() { wage = hours = 0; }
+    public _14211519_叶文霆_3_HourlyEmployee(String fn, String ln, String ssn, int wa, int ho)
     {
         super(fn, ln, ssn);
         wage = wa; hours = ho;

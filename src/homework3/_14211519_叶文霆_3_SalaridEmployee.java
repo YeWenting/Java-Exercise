@@ -3,12 +3,12 @@ package homework3;
 /**
  * Created by YeWenting on 06/12/2016.
  */
-public class SalaridEmployee extends Employee
+public class _14211519_叶文霆_3_SalaridEmployee extends _14211519_叶文霆_3_Employee
 {
     private int weeklySalary;
 
-    public SalaridEmployee() { weeklySalary = 0; }
-    public SalaridEmployee(String fn, String ln, String ssn, int ws)
+    public _14211519_叶文霆_3_SalaridEmployee() { weeklySalary = 0; }
+    public _14211519_叶文霆_3_SalaridEmployee(String fn, String ln, String ssn, int ws)
     {
         super(fn, ln, ssn);
         weeklySalary = ws;
@@ -29,7 +29,7 @@ public class SalaridEmployee extends Employee
 
         temp.append("This is a salaried employee:\n");
         temp.append(super.toString());
-        temp.append("Salary" + weeklySalary);
+        temp.append("Salary: " + weeklySalary);
         temp.append("\nEarning: " + earning());
         temp.append("\n");
 

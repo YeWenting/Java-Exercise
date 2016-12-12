@@ -3,13 +3,13 @@ package homework3;
 /**
  * Created by YeWenting on 06/12/2016.
  */
-public class CommisionEmployee extends Employee
+public class _14211519_叶文霆_3_CommisionEmployee extends _14211519_叶文霆_3_Employee
 {
     private int grossSales;
     private double commissionRate;
 
-    public CommisionEmployee() { grossSales = 0; commissionRate = 0.0; }
-    public CommisionEmployee(String fn, String ln, String ssn, int gs, double cr)
+    public _14211519_叶文霆_3_CommisionEmployee() { grossSales = 0; commissionRate = 0.0; }
+    public _14211519_叶文霆_3_CommisionEmployee(String fn, String ln, String ssn, int gs, double cr)
     {
         super(fn, ln, ssn);
         grossSales = gs;

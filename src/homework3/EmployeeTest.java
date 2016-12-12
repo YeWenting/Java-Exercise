@@ -15,7 +15,7 @@ public class EmployeeTest
     static public void main(String[] args)
     {
         Random rand = new Random();
-        ArrayList<Employee> employees = new ArrayList<Employee>();
+        ArrayList<_14211519_叶文霆_3_Employee> employees = new ArrayList<_14211519_叶文霆_3_Employee>();
 
         for (int i = 0; i < EMPLOYEE_NUM; i++)
         {
@@ -51,7 +51,7 @@ public class EmployeeTest
                     int ws;
                     System.out.println("Salary:");
                     ws = Keyboard.nextInt(System.in);
-                    employees.add(new SalaridEmployee(first, last, SSN, ws));
+                    employees.add(new _14211519_叶文霆_3_SalaridEmployee(first, last, SSN, ws));
                     break;
 
                 case 1  :
@@ -61,7 +61,7 @@ public class EmployeeTest
                     wage = Keyboard.nextInt(System.in);
                     System.out.println("Hour:");
                     hour = Keyboard.nextInt(System.in);
-                    employees.add(new HourlyEmployee(first, last, SSN, wage, hour));
+                    employees.add(new _14211519_叶文霆_3_HourlyEmployee(first, last, SSN, wage, hour));
                     break;
 
                 case 2  :
@@ -72,7 +72,7 @@ public class EmployeeTest
                     gs = Keyboard.nextInt(System.in);
                     System.out.println("Commission rate:");
                     cr = Keyboard.nextDouble(System.in);
-                    employees.add(new CommisionEmployee(first, last, SSN, gs, cr));
+                    employees.add(new _14211519_叶文霆_3_CommisionEmployee(first, last, SSN, gs, cr));
                     break;
 
                 default :
@@ -85,7 +85,7 @@ public class EmployeeTest
                     crBase = Keyboard.nextDouble(System.in);
                     System.out.println("Base salary:");
                     bs = Keyboard.nextInt(System.in);
-                    employees.add(new BasePlusCommisionEmployee(first, last, SSN, gsBase, crBase, bs));
+                    employees.add(new _14211519_叶文霆_3_BasePlusCommisionEmployee(first, last, SSN, gsBase, crBase, bs));
                     break;
             }
         }
