@@ -2,7 +2,6 @@ package homework3;
 
 import java.util.ArrayList;
 import java.util.Random;
-import my_utility.Keyboard;
 
 /**
  * Created by YeWenting on 07/12/2016.

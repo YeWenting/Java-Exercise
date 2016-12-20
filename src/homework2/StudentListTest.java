@@ -9,7 +9,6 @@ package homework2;
  */
 public class StudentListTest
 {
-
     static public void main(String[] args)
     {
         UserInterface machine = new UserInterface();
