@@ -1,11 +1,9 @@
 package homework5;
 
-import java.security.Key;
-
 /**
  * Created by YeWenting on 20/12/2016.
  */
-public class FactoryTest
+public class _14211519_叶文霆_5_FactoryTest
 {
     static public void main(String args[])
     {
@@ -18,12 +16,12 @@ public class FactoryTest
 class UserInterface
 {
     /* Data field */
-    private Factory testFactory;
+    private _14211519_叶文霆_5_Factory testFactory;
 
     /* Construction method */
-    public UserInterface(){ testFactory = new Factory(); }
+    public UserInterface(){ testFactory = new _14211519_叶文霆_5_Factory(); }
 
-    /* Interact method */
+    /* Client serving method */
     private void printWelcomeInfo()
     {
         System.out.println("Please input your command:");

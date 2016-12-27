@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * Created by YeWenting on 20/12/2016.
  */
-public class Factory
+public class _14211519_叶文霆_5_Factory
 {
     /* Initialized number of employees */
     static private final int INIT_NUM = 10;
@@ -15,7 +15,7 @@ public class Factory
     private HashMap <String, _14211519_叶文霆_5_Employee> employees;
 
     /* Construction method */
-    public Factory() { employees = new HashMap <String, _14211519_叶文霆_5_Employee>(); }
+    public _14211519_叶文霆_5_Factory() { employees = new HashMap <String, _14211519_叶文霆_5_Employee>(); }
 
     /* Initialized method */
     public void initEmployees()
@@ -44,7 +44,7 @@ public class Factory
                 this.addEmployee(emp);
             else
             {
-                System.out.println("The initialing process is ended.");
+                System.out.println("The initialing process is ended.\n");
                 return;
             }
         }
