@@ -33,7 +33,7 @@ class UserInterface
     {
         /* read the empSecNum */
         System.out.println("Please input the social security number");
-        String empSecNum = Keyboard.nextString(System.in);
+        String empSecNum = _14211519_叶文霆_5_Keyboard.nextString(System.in);
 
         _14211519_叶文霆_5_Employee emp =  testFactory.getEmployee(empSecNum);
 
@@ -48,7 +48,7 @@ class UserInterface
     {
         /* read the empSecNum */
         System.out.println("Please input the social security number");
-        String empSecNum = Keyboard.nextString(System.in);
+        String empSecNum = _14211519_叶文霆_5_Keyboard.nextString(System.in);
 
         if (testFactory.getEmployee(empSecNum) == null)
         {
@@ -62,10 +62,10 @@ class UserInterface
         {
             System.out.println("0->salaried emp 1->hourly emp 2->commission emp 3->base plus commission emp");
             System.out.println("What's new employee type:");
-            type = Keyboard.nextInt(System.in);
+            type = _14211519_叶文霆_5_Keyboard.nextInt(System.in);
         } while (type < 0 || type > 3);
 
-        _14211519_叶文霆_5_Employee emp = Keyboard.nextEmployee(System.in, type);
+        _14211519_叶文霆_5_Employee emp = _14211519_叶文霆_5_Keyboard.nextEmployee(System.in, type);
         testFactory.updateEmployee(empSecNum, emp);
         System.out.println("Updated successfully!\n");
     }
@@ -74,7 +74,7 @@ class UserInterface
     {
         /* read the empSecNum */
         System.out.println("Please input the social security number");
-        String empSecNum = Keyboard.nextString(System.in);
+        String empSecNum = _14211519_叶文霆_5_Keyboard.nextString(System.in);
 
         _14211519_叶文霆_5_Employee emp =  testFactory.deleteEmployee(empSecNum);
 
@@ -101,7 +101,7 @@ class UserInterface
         while (true)
         {
             printWelcomeInfo();
-            int command = Keyboard.nextInt(System.in);
+            int command = _14211519_叶文霆_5_Keyboard.nextInt(System.in);
             boolean exitKey = false;
 
             switch (command)

@@ -13,7 +13,7 @@ import java.util.Scanner;
  * <p>
  * Created by YeWenting on 24/10/2016.
  */
-public class Keyboard {
+public class _14211519_叶文霆_5_Keyboard {
     static public int nextInt(InputStream input) {
         int x;
 
@@ -58,11 +58,11 @@ public class Keyboard {
         /* read basic info */
         String first, last, SSN;
         System.out.println("First name:");
-        first = Keyboard.nextString(input);
+        first = _14211519_叶文霆_5_Keyboard.nextString(input);
         System.out.println("Last name:");
-        last = Keyboard.nextString(input);
+        last = _14211519_叶文霆_5_Keyboard.nextString(input);
         System.out.println("Social security number:");
-        SSN = Keyboard.nextString(input);
+        SSN = _14211519_叶文霆_5_Keyboard.nextString(input);
 
         /* SSN = "0000" break */
         if (SSN.equals("0000"))
@@ -74,16 +74,16 @@ public class Keyboard {
                 /* read salary employee info */
                 int ws;
                 System.out.println("Salary:");
-                ws = Keyboard.nextInt(input);
+                ws = _14211519_叶文霆_5_Keyboard.nextInt(input);
                 return new _14211519_叶文霆_5_SalaridEmployee(first, last, SSN, ws);
 
             case 1:
                 /* read hourly employee info */
                 int hour, wage;
                 System.out.println("Wage:");
-                wage = Keyboard.nextInt(input);
+                wage = _14211519_叶文霆_5_Keyboard.nextInt(input);
                 System.out.println("Hour:");
-                hour = Keyboard.nextInt(input);
+                hour = _14211519_叶文霆_5_Keyboard.nextInt(input);
                 return new _14211519_叶文霆_5_HourlyEmployee(first, last, SSN, wage, hour);
 
             case 2:
@@ -91,9 +91,9 @@ public class Keyboard {
                 int gs;
                 double cr;
                 System.out.println("Gross sales:");
-                gs = Keyboard.nextInt(input);
+                gs = _14211519_叶文霆_5_Keyboard.nextInt(input);
                 System.out.println("Commission rate:");
-                cr = Keyboard.nextDouble(input);
+                cr = _14211519_叶文霆_5_Keyboard.nextDouble(input);
                 return new _14211519_叶文霆_5_CommisionEmployee(first, last, SSN, gs, cr);
 
             default:
@@ -101,11 +101,11 @@ public class Keyboard {
                 int gsBase, bs;
                 double crBase;
                 System.out.println("Gross sales:");
-                gsBase = Keyboard.nextInt(input);
+                gsBase = _14211519_叶文霆_5_Keyboard.nextInt(input);
                 System.out.println("Commission rate:");
-                crBase = Keyboard.nextDouble(input);
+                crBase = _14211519_叶文霆_5_Keyboard.nextDouble(input);
                 System.out.println("Base salary:");
-                bs = Keyboard.nextInt(input);
+                bs = _14211519_叶文霆_5_Keyboard.nextInt(input);
                 return new _14211519_叶文霆_5_BasePlusCommisionEmployee(first, last, SSN, gsBase, crBase, bs);
 
 //            default:

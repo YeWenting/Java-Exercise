@@ -39,7 +39,7 @@ public class _14211519_叶文霆_5_Factory
                     break;
             }
 
-            _14211519_叶文霆_5_Employee emp = Keyboard.nextEmployee(System.in, type);
+            _14211519_叶文霆_5_Employee emp = _14211519_叶文霆_5_Keyboard.nextEmployee(System.in, type);
             if (emp != null)
                 this.addEmployee(emp);
             else
