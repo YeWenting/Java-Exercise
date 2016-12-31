@@ -2,7 +2,6 @@ package homework4;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +19,7 @@ public class _14211519_叶文霆_4_GUI extends JFrame
     private static final int CONFIRM_HEIGHT = 100;
 
     /* Employees data & method */
-    ArrayList<_14211519_叶文霆_4_Employee> employees;
+    private ArrayList<_14211519_叶文霆_4_Employee> employees;
 
     private double getAverWage()
     {
@@ -39,12 +38,13 @@ public class _14211519_叶文霆_4_GUI extends JFrame
     {
         public BasePlusCommisionEmpDialog(JFrame f)
         {
-            super(f, true);
+            super(f);
             initUI();
         }
 
         private void initUI()
         {
+
             JPanel panel = new JPanel();
             panel.setLayout(new GridLayout(7, 2));
 
@@ -87,9 +87,11 @@ public class _14211519_叶文霆_4_GUI extends JFrame
                             lastNameField.getText(),
                             secNumField.getText(),
                             Integer.parseInt(salesField.getText()),
-                            Integer.parseInt(rateField.getText()),
+                            Double.parseDouble(rateField.getText()),
                             Integer.parseInt(baseSalaryField.getText())
                     ));
+
+                    System.out.println(employees.get(0));
                 }
                 catch (Exception e)
                 {
@@ -116,7 +118,7 @@ public class _14211519_叶文霆_4_GUI extends JFrame
             this.pack();
 
             // Misc
-            setTitle ("Create Commision Employee");
+            setTitle ("Create Base Plus Commision Employee");
             setDefaultCloseOperation (DISPOSE_ON_CLOSE);
             setLocationRelativeTo (getParent ());
             setSize(INPUT_WIDTH, INPUT_HEIGHT);
@@ -173,11 +175,15 @@ public class _14211519_叶文霆_4_GUI extends JFrame
                             Integer.parseInt(salesField.getText()),
                             Double.parseDouble(rateField.getText())
                             ));
+
+                    System.out.println(employees.get(0));
                 }
                 catch (Exception e)
                 {
                     ErrorLog log = new ErrorLog();
                     log.setVisible(true);
+
+
                 }
                 finally
                 {
@@ -293,6 +299,9 @@ public class _14211519_叶文霆_4_GUI extends JFrame
         JMenuItem mAverSearch = new JMenuItem("AverageEarningSearch");
         mAverSearch.addActionListener((e) ->
         {
+            ErrorLog log = new ErrorLog();
+            log.setVisible(true);
+
             AverEarningDialog dialog = new AverEarningDialog();
             dialog.setVisible(true);
         });
@@ -311,11 +320,6 @@ public class _14211519_叶文霆_4_GUI extends JFrame
         mMain.add(mEmpInfoInput);
         mMain.add(mSearch);
         this.setJMenuBar(mMain);
-    }
-
-    private void actionPerformed(ActionEvent e)
-    {
-        if (e.getSource() == )
     }
 
     public static void main(String[] args)
