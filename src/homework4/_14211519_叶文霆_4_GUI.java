@@ -129,7 +129,7 @@ public class _14211519_叶文霆_4_GUI extends JFrame
     {
         public CommisionEmpDialog(JFrame f)
         {
-            super(f, true);
+            super(f);
             initUI();
         }
 
@@ -231,6 +231,7 @@ public class _14211519_叶文霆_4_GUI extends JFrame
             setDefaultCloseOperation (DISPOSE_ON_CLOSE);
             setLocationRelativeTo (getParent());
             setSize(CONFIRM_WIDTH, CONFIRM_HEIGHT);
+            this.setModal(true);
         }
     }
 
@@ -268,7 +269,7 @@ public class _14211519_叶文霆_4_GUI extends JFrame
         initMenu();
 
         // Show the content
-        this.add(new JLabel ("Swing GUI - 员工信息的录入和查询", JLabel.CENTER));
+        this.add(new JLabel ("Employee Message System - Designed by Ywt.", JLabel.CENTER));
 
         // Misc
         setTitle ("员工信息的录入和查询");
