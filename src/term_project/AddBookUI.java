@@ -5,6 +5,8 @@
  */
 package term_project;
 
+import sun.applet.Main;
+
 import javax.swing.*;
 
 /**
@@ -43,6 +45,7 @@ public class AddBookUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(450, 520));
+        setLocationRelativeTo(getParent());
 
         jLabel1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 13)); // NOI18N
         jLabel1.setText("ISBN号：");
@@ -184,6 +187,7 @@ public class AddBookUI extends javax.swing.JFrame {
     }//GEN-LAST:event_tPriceActionPerformed
 
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
+        new MainUI().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bCancelActionPerformed
 
@@ -200,6 +204,7 @@ public class AddBookUI extends javax.swing.JFrame {
             Controller.getInstance().addBook(isbn, price, name, type);
 
             JOptionPane.showMessageDialog(null, "添加成功！", "成功", JOptionPane.INFORMATION_MESSAGE);
+            new MainUI().setVisible(true);
             this.dispose();
         }
         catch (Exception e){

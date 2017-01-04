@@ -5,6 +5,8 @@
  */
 package term_project;
 
+import sun.applet.Main;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -66,6 +68,7 @@ public class StrategiesUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(450, 520));
+        setLocationRelativeTo(getParent());
 
         updateRowData(tStrategies);
 
@@ -167,22 +170,36 @@ public class StrategiesUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bDeleteActionPerformed(java.awt.event.ActionEvent evt) {
-        int strategyIdx = tStrategies.getSelectedRow();
-        String ID = tStrategies.getValueAt(strategyIdx, 0).toString();
-        controller.deleteStrategy(ID);
+        try {
+            int strategyIdx = tStrategies.getSelectedRow();
+            if (strategyIdx < 0) throw new Exception("请点击选中想要删除的策略！");
+            String ID = tStrategies.getValueAt(strategyIdx, 0).toString();
+            controller.deleteStrategy(ID);
 
-        /* Remove from the table */
-        DefaultTableModel model = (DefaultTableModel) tStrategies.getModel();
-        model.removeRow(strategyIdx);
-        tStrategies.setModel(model);
-        JOptionPane.showMessageDialog(null, "删除成功！", "成功", JOptionPane.INFORMATION_MESSAGE);
+            /* Remove from the table */
+            DefaultTableModel model = (DefaultTableModel) tStrategies.getModel();
+            model.removeRow(strategyIdx);
+            tStrategies.setModel(model);
+            JOptionPane.showMessageDialog(null, "删除成功！", "成功", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
+        }
     }                                       
 
     private void bUpdateActionPerformed(java.awt.event.ActionEvent evt) {
-        int strategyIdx = tStrategies.getSelectedRow();
-        String ID = tStrategies.getValueAt(strategyIdx, 0).toString();
+        try{
+            int strategyIdx = tStrategies.getSelectedRow();
+            if (strategyIdx < 0) throw new Exception("请点击选中想要编辑的策略！");
 
-        new UpdateStrategyUI(ID).setVisible(true);
+            String ID = tStrategies.getValueAt(strategyIdx, 0).toString();
+
+            new UpdateStrategyUI(ID).setVisible(true);
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void bReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReloadActionPerformed
@@ -190,6 +207,7 @@ public class StrategiesUI extends javax.swing.JFrame {
     }//GEN-LAST:event_bReloadActionPerformed
 
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
+        new MainUI().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bCancelActionPerformed
 

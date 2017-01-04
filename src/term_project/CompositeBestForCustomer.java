@@ -10,7 +10,7 @@ public class CompositeBestForCustomer extends CompositeStrategy
     static final int MAX_TOTAL = 2014211519;
 
     /* The constructor method */
-    public CompositeBestForCustomer(String list, HashSet<Integer> book, String ID, String name)
+    public CompositeBestForCustomer(String[] list, HashSet<Integer> book, String ID, String name)
     {
         super(list, book, ID, name);
     }

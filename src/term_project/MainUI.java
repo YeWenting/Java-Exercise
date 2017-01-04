@@ -6,7 +6,8 @@
 package term_project;
 
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+import java.awt.Toolkit;
+import java.awt.Dimension;
 
 /**
  *
@@ -37,6 +38,8 @@ public class MainUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(450, 520));
+        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(size.width / 2 - 300, size.height / 2 - 300);
 
         jLabel5.setFont(new java.awt.Font("Microsoft Tai Le", 1, 48)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -124,10 +127,12 @@ public class MainUI extends javax.swing.JFrame {
 
     private void bBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuyActionPerformed
         new AddBookUI().setVisible(true);
+        dispose();
     }
 
     private void bStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuyActionPerformed
         new StrategiesUI().setVisible(true);
+        dispose();
     }
 
     private void bExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExitActionPerformed
@@ -137,6 +142,7 @@ public class MainUI extends javax.swing.JFrame {
 
     private void bBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuyActionPerformed
         new BuyUI().setVisible(true);
+        dispose();
     }//GEN-LAST:event_bBuyActionPerformed
 
     /**

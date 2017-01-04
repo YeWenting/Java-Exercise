@@ -60,7 +60,11 @@ public class PricingStrategyFactory
                 break;
 
             case IPricingStrategy.COMPOSITE:
-                temp = catalog.add(new CompositeBestForCustomer(paras.toString(), booktype, ID, name));
+                // Check Validity
+                String[] list = paras.toString().split("\\|");
+                for (String strategyID : list)
+                    if (catalog.get(strategyID) == null) throw new Exception("输入的简单策略编号无效！");
+                temp = catalog.add(new CompositeBestForCustomer(list, booktype, ID, name));
                 break;
 
             case IPricingStrategy.NODISCOUNT:

@@ -13,11 +13,10 @@ abstract public class CompositeStrategy extends PricingStrategy
 
     /* The constructor method */
     public CompositeStrategy() {}
-    public CompositeStrategy(String list, HashSet<Integer> book, String ID, String name)
+    public CompositeStrategy(String[] list, HashSet<Integer> book, String ID, String name)
     {
         super(book, ID, name);
-        String[] lists = list.split("\\|");
-        for (String strategyName : lists)
+        for (String strategyName : list)
             strategies.add(strategyName);
     }
 

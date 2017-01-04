@@ -15,11 +15,15 @@ public class BuyUI extends javax.swing.JFrame {
 
     /* The controller "pointer" */
     Controller controller = Controller.getInstance();
+    ShoppingCartUI shoppingCartUI = new ShoppingCartUI();
+    Sale sale = controller.getSale();
 
     /**
      * Creates new form StrategiesUI
      */
-    public BuyUI() {
+    public BuyUI()
+    {
+        sale.registerObserver(shoppingCartUI);
         initComponents();
     }
 
@@ -66,6 +70,7 @@ public class BuyUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(450, 520));
+        setLocationRelativeTo(getParent());
 
         updateRowData(tBooks);
 
@@ -156,12 +161,15 @@ public class BuyUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
+        new MainUI().setVisible(true);
+        shoppingCartUI.dispose();
         this.dispose();
     }//GEN-LAST:event_bCancelActionPerformed
 
     private void bAddActionPerformed(java.awt.event.ActionEvent evt) {
         try{
             int bookIdx = tBooks.getSelectedRow();
+            if (bookIdx < 0) throw new Exception("请点击选中想要购买的书籍！");
             String ISBN = tBooks.getValueAt(bookIdx, 0).toString();
             int num = Integer.parseInt(tNum.getText());
 

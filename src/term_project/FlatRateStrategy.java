@@ -20,7 +20,7 @@ public class FlatRateStrategy extends PricingStrategy
     @Override
     public double getSubTotal(SaleLineItem item)
     {
-        return item.getCopies() * item.getProdSpec().getPrice() - discountPerBook;
+        return item.getCopies() * (item.getProdSpec().getPrice() - discountPerBook);
     }
 
     @Override
