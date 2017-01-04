@@ -40,4 +40,11 @@ public class Controller
     {
         return factory.createPricingStrategy(type, paras, books, ID, name);
     }
+
+    public PricingStrategy updateStrategy(int type, String paras, HashSet<Integer> books, String ID, String name)
+        throws Exception
+    {
+        factory.removePricingStrategy(ID);
+        return factory.createPricingStrategy(type, paras, books, ID, name);
+    }
 }

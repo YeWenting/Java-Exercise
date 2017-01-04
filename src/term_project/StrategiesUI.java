@@ -176,8 +176,12 @@ public class StrategiesUI extends javax.swing.JFrame {
         tStrategies.setModel(model);
     }                                       
 
-    private void bUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUpdateActionPerformed
-    }//GEN-LAST:event_bUpdateActionPerformed
+    private void bUpdateActionPerformed(java.awt.event.ActionEvent evt) {
+        int strategyIdx = tStrategies.getSelectedRow();
+        String ID = tStrategies.getValueAt(strategyIdx, 0).toString();
+
+        new UpdateStrategyUI(ID).setVisible(true);
+    }
 
     private void bReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReloadActionPerformed
         updateRowData();

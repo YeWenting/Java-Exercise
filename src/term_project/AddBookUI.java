@@ -198,6 +198,9 @@ public class AddBookUI extends javax.swing.JFrame {
             if (price <= 0 ) throw new Exception("价格不能为负数！");
 
             Controller.getInstance().addBook(isbn, price, name, type);
+
+            JOptionPane.showMessageDialog(null, "添加成功！", "成功", JOptionPane.INFORMATION_MESSAGE);
+            this.dispose();
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
