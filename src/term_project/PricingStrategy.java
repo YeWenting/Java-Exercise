@@ -33,8 +33,11 @@ abstract public class PricingStrategy implements IPricingStrategy
     {
         StringBuilder temp = new StringBuilder();
 
-        for (int type : book)
-            temp.append(ProductSpecification.idxToStr[type] + " ");
+        if (book.size() > 0)
+            for (int type : book)
+                temp.append(ProductSpecification.idxToStr[type] + " ");
+        else
+            temp.append("无");
 
         return temp.toString();
     }

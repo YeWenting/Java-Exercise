@@ -19,15 +19,35 @@ public class StrategiesUI extends javax.swing.JFrame {
     /* The controller "pointer" */
     Controller controller = Controller.getInstance();
 
-    /**
-     * Creates new form StrategiesUI
-     */
     public StrategiesUI() {
         initComponents();
     }
 
     private void updateRowData(javax.swing.JTable tStrategies)
     {
+        String[][] rowsData = controller.getAllStrategiesInfo();
+
+        tStrategies.setModel(new javax.swing.table.DefaultTableModel(rowsData,
+                new String [] {
+                        "优惠编号", "优惠名字", "优惠类型", "适用书籍", "参数"
+                }));
+    }
+
+    private void initComponents() {
+
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tStrategies = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        bDelete = new javax.swing.JButton();
+        bUpdate = new javax.swing.JButton();
+        bReload = new javax.swing.JButton();
+        bCancel = new javax.swing.JButton();
+        bAdd1 = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(450, 520));
+        setLocationRelativeTo(getParent());
+
         String[][] rowsData = controller.getAllStrategiesInfo();
 
         tStrategies.setModel(new javax.swing.table.DefaultTableModel(
@@ -51,26 +71,6 @@ public class StrategiesUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-    }
-
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tStrategies = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
-        bDelete = new javax.swing.JButton();
-        bUpdate = new javax.swing.JButton();
-        bReload = new javax.swing.JButton();
-        bCancel = new javax.swing.JButton();
-        bAdd1 = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(450, 520));
-        setLocationRelativeTo(getParent());
-
-        updateRowData(tStrategies);
 
         jScrollPane1.setViewportView(tStrategies);
 
@@ -167,7 +167,7 @@ public class StrategiesUI extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void bDeleteActionPerformed(java.awt.event.ActionEvent evt) {
         try {
@@ -214,41 +214,6 @@ public class StrategiesUI extends javax.swing.JFrame {
     private void bAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdd1ActionPerformed
         new AddStrategyUI().setVisible(true);
     }//GEN-LAST:event_bAdd1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StrategiesUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StrategiesUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StrategiesUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StrategiesUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new StrategiesUI().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAdd1;
