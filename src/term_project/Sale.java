@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Sale
 {
     /* The data field */
-    private ArrayList<SaleLineItem> items = new ArrayList<SaleLineItem>();
+    private ArrayList<SaleLineItem> items = new ArrayList<>();
 
     /* The constructor method */
     public Sale() {}

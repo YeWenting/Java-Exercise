@@ -5,6 +5,7 @@
  */
 package term_project;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,7 +24,7 @@ public class StrategiesUI extends javax.swing.JFrame {
         initComponents();
     }
 
-    private void updateRowData()
+    private void updateRowData(javax.swing.JTable tStrategies)
     {
         String[][] rowsData = controller.getAllStrategiesInfo();
 
@@ -37,7 +38,7 @@ public class StrategiesUI extends javax.swing.JFrame {
                     java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                    false, false, false, true, false
+                    false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -66,7 +67,7 @@ public class StrategiesUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(450, 520));
 
-        updateRowData();
+        updateRowData(tStrategies);
 
         jScrollPane1.setViewportView(tStrategies);
 
@@ -174,6 +175,7 @@ public class StrategiesUI extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tStrategies.getModel();
         model.removeRow(strategyIdx);
         tStrategies.setModel(model);
+        JOptionPane.showMessageDialog(null, "删除成功！", "成功", JOptionPane.INFORMATION_MESSAGE);
     }                                       
 
     private void bUpdateActionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +186,7 @@ public class StrategiesUI extends javax.swing.JFrame {
     }
 
     private void bReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReloadActionPerformed
-        updateRowData();
+        updateRowData(tStrategies);
     }//GEN-LAST:event_bReloadActionPerformed
 
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed

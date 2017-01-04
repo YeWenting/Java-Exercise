@@ -1,5 +1,6 @@
 package term_project;
 
+import java.awt.print.Book;
 import java.util.HashSet;
 
 /**
@@ -11,6 +12,7 @@ public class Controller
     private BookCatalog bookCatalog = new BookCatalog();
     private static Controller instance;
     private PricingStrategyFactory factory = PricingStrategyFactory.getInstance();
+    private Sale sale = new Sale();
 
     /* Singleton pattern */
     private Controller() {}
@@ -22,7 +24,7 @@ public class Controller
     }
 
     /**
-     *  The Model Management Wrapper
+     *  The Book Management Wrapper
      */
     public void addBook(String isbn, double price, String title, int type)
     {
@@ -30,6 +32,8 @@ public class Controller
         ProductSpecification book = new ProductSpecification(isbn, price, title, type);
         bookCatalog.add(book);
     }
+
+    public String[][] getAllBooksInfo() { return bookCatalog.getAllData(); }
 
     public String[][] getAllStrategiesInfo() { return factory.getAllStratetiesInfo(); }
 
@@ -46,5 +50,13 @@ public class Controller
     {
         factory.removePricingStrategy(ID);
         return factory.createPricingStrategy(type, paras, books, ID, name);
+    }
+
+    public SaleLineItem buyBook(String ISBN, int num)
+        throws Exception
+    {
+        ProductSpecification bookInfo = bookCatalog.get(ISBN);
+        if (bookInfo == null) throw new Exception("ISBN号无效");
+        return sale.add(new SaleLineItem(num, bookInfo, factory.getStrategyOfBook(bookInfo.getType())));
     }
 }
