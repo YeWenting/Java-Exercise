@@ -22,4 +22,10 @@ public class PercentageStrategy extends PricingStrategy
     {
         return item.getCopies() * item.getProdSpec().getPrice() * (100 - discountPercent) / 100;
     }
+
+    @Override
+    public String getType() { return "百分比优惠策略"; }
+
+    @Override
+    public String getPara() { return String.valueOf(discountPercent); }
 }

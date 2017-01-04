@@ -31,6 +31,8 @@ public class PricingStrategyFactory
     /* The catalog access wrapper */
     public PricingStrategy getStrategyOfBook(int type) { return catalog.getStrategyOfBook(type); }
     public PricingStrategy getPricingStrategy(String ID) { return catalog.get(ID); }
+    public PricingStrategy removePricingStrategy(String ID) { return catalog.remove(ID); }
+    public String[][] getAllStratetiesInfo() { return catalog.getAllData(); }
 
     /* The factory pattern method */
     public PricingStrategy createPricingStrategy(int type, Object paras, HashSet<Integer> booktype, String ID, String name)
@@ -42,7 +44,7 @@ public class PricingStrategyFactory
 
         /* Check if the book type has been bound */
         for (int i : booktype)
-            if (catalog.getStrategyOfBook(i) != null )
+            if (!catalog.getStrategyOfBook(i).getType().equals("无优惠"))
                 throw new Exception(ProductSpecification.idxToStr[i] + "已被绑定！");
 
         /* Create the strategy */

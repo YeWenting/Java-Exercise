@@ -22,4 +22,10 @@ public class FlatRateStrategy extends PricingStrategy
     {
         return item.getCopies() * item.getProdSpec().getPrice() - discountPerBook;
     }
+
+    @Override
+    public String getType() { return "绝对值优惠策略"; }
+
+    @Override
+    public String getPara() { return String.valueOf(discountPerBook); }
 }

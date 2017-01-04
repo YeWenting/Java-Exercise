@@ -25,5 +25,6 @@ abstract public class CompositeStrategy extends PricingStrategy
     public void add(String name) { strategies.add(name); }
 
     @Override
-    public abstract double getSubTotal(SaleLineItem item);
+    public String getPara() { return String.join(",", strategies); }
+
 }

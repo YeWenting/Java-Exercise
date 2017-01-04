@@ -10,4 +10,10 @@ public class NoDiscountStrategy extends PricingStrategy
     {
         return item.getCopies() * item.getProdSpec().getPrice();
     }
+
+    @Override
+    public String getType() { return "无优惠"; }
+
+    @Override
+    public String getPara() { return "null"; }
 }

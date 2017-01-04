@@ -15,10 +15,14 @@ import java.util.HashSet;
  */
 public class AddStrategyUI extends javax.swing.JFrame {
 
+    /* The controller "pointer" */
+    Controller controller = Controller.getInstance();
+
     /**
      * Creates new form AddBookUI
      */
     public AddStrategyUI() {
+        System.out.println(1);
         initComponents();
     }
 
@@ -266,9 +270,10 @@ public class AddStrategyUI extends javax.swing.JFrame {
             if (Sunxiaoyu3.isSelected()) books.add(ProductSpecification.HEALTHCARE_BOOK);
             if (Sunxiaoyu4.isSelected()) books.add(ProductSpecification.OTHER_BOOK);
 
-            PricingStrategyFactory.getInstance().createPricingStrategy(type, paras, books, ID, name);
+            controller.addStrategy(type, paras, books, ID, name);
 
             System.out.println(PricingStrategyFactory.getInstance().getPricingStrategy(ID));
+            this.dispose();
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);

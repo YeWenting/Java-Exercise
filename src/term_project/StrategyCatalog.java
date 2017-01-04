@@ -7,7 +7,10 @@ import java.util.HashMap;
  */
 public class StrategyCatalog
 {
-    /* Strategy ID -> Strategy data field*/
+    /* The constant field */
+    public static final String[] idxToStr = {"绝对值优惠策略", "百分比优惠策略", "顾客最优策略"};
+
+    /* Strategy ID -> Strategy data field */
     private HashMap<String, PricingStrategy> strategies = new HashMap<>();
 
     /* The constructor method */
@@ -15,11 +18,34 @@ public class StrategyCatalog
 
     /* The control method */
     public PricingStrategy get(String ID) { return strategies.get(ID); }
-    public PricingStrategy delete(String ID) { return strategies.remove(ID); }
+
+    public PricingStrategy remove(String ID) { return strategies.remove(ID); }
+
+    public int size() { return strategies.size(); }
+
     public PricingStrategy add(PricingStrategy strategy)
     {
         strategies.put(strategy.getID(), strategy);
         return strategy;
+    }
+
+    public String[][] getAllData()
+    {
+        int i = 0;
+        String[][] data = new String[strategies.size()][];
+
+        for (PricingStrategy strategy : strategies.values()) {
+            data[i] = new String[]{
+                    strategy.getID(),
+                    strategy.getName(),
+                    strategy.getType(),
+                    strategy.getBookTypes(),
+                    strategy.getPara()
+            };
+            i++;
+        }
+
+        return data;
     }
 
     /* The book-discount answer method */
@@ -29,6 +55,6 @@ public class StrategyCatalog
         {
             if (strategy.containsBook(type)) return strategy;
         }
-        return null;
+        return new NoDiscountStrategy();
     }
 }

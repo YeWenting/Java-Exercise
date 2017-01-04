@@ -29,5 +29,17 @@ abstract public class PricingStrategy implements IPricingStrategy
     public boolean containsBook(int type) { return book.contains(type); }
     public String getID() { return ID; }
     public String getName() { return name; }
+    public String getBookTypes()
+    {
+        StringBuilder temp = new StringBuilder();
+
+        for (int type : book)
+            temp.append(ProductSpecification.idxToStr[type] + " ");
+
+        return temp.toString();
+    }
+
     abstract public double getSubTotal(SaleLineItem item);
+    abstract public String getType();
+    abstract public String getPara();
 }

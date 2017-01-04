@@ -27,4 +27,8 @@ public class CompositeBestForCustomer extends CompositeStrategy
         }
         return best;
     }
+
+    @Override
+    public String getType() { return "顾客最优策略"; }
+
 }
