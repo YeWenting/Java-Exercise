@@ -1,6 +1,6 @@
 package term_project;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * Created by YeWenting on 2017/1/2.
@@ -11,9 +11,9 @@ public class PercentageStrategy extends PricingStrategy
     private int discountPercent = 0;
 
     /* The instructor method */
-    public PercentageStrategy(int discount, ArrayList<Integer> book)
+    public PercentageStrategy(int discount, HashSet<Integer> book, String ID, String name)
     {
-        super(book);
+        super(book, ID, name);
         discountPercent = discount;
     }
 

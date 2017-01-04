@@ -36,10 +36,10 @@ public class AddBookUI extends javax.swing.JFrame {
         tName = new javax.swing.JTextField();
         tISBN = new javax.swing.JTextField();
         tPrice = new javax.swing.JTextField();
-        tType = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         bCancel = new javax.swing.JButton();
         bSubmit = new javax.swing.JButton();
+        tType = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(450, 520));
@@ -78,12 +78,6 @@ public class AddBookUI extends javax.swing.JFrame {
             }
         });
 
-        tType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tTypeActionPerformed(evt);
-            }
-        });
-
         jLabel5.setFont(new java.awt.Font("Microsoft Tai Le", 1, 48)); // NOI18N
         jLabel5.setText("添加书籍");
 
@@ -103,6 +97,13 @@ public class AddBookUI extends javax.swing.JFrame {
             }
         });
 
+        tType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "非教材类计算机图书", "教材类图书", "连环画类图书", "养生类图书", "其他" }));
+        tType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tTypeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,18 +119,18 @@ public class AddBookUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tName)
                     .addComponent(tPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(tType, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(tISBN))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(tISBN)
+                    .addComponent(tType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(bCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(82, 82, 82))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80))))
+                        .addGap(72, 72, 72))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(66, 66, 66)
@@ -141,7 +142,7 @@ public class AddBookUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(50, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -152,7 +153,7 @@ public class AddBookUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tType, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -182,10 +183,6 @@ public class AddBookUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tPriceActionPerformed
 
-    private void tTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tTypeActionPerformed
-
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCancelActionPerformed
@@ -195,20 +192,22 @@ public class AddBookUI extends javax.swing.JFrame {
             String isbn = tISBN.getText();
             double price = Double.parseDouble(tPrice.getText());
             String name = tName.getText();
-            int type = Integer.parseInt(tType.getText());
+            int type = tType.getSelectedIndex();
             if (isbn.equals("")) throw new Exception("ISBN号不能为空！");
             if (name.equals("")) throw new Exception("书名不能为空！");
             if (price <= 0 ) throw new Exception("价格不能为负数！");
-            if (type < 0 || type > 4) throw new Exception("类型号无效！");
 
             Controller.getInstance().addBook(isbn, price, name, type);
-
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
 
         }
     }//GEN-LAST:event_bSubmitActionPerformed
+
+    private void tTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tTypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,6 +255,6 @@ public class AddBookUI extends javax.swing.JFrame {
     private javax.swing.JTextField tISBN;
     private javax.swing.JTextField tName;
     private javax.swing.JTextField tPrice;
-    private javax.swing.JTextField tType;
+    private javax.swing.JComboBox<String> tType;
     // End of variables declaration//GEN-END:variables
 }

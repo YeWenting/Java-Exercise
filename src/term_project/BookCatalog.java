@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class BookCatalog
 {
     /* The data field */
-    HashMap<String, ProductSpecification> books = new HashMap<String, ProductSpecification>();
+    HashMap<String, ProductSpecification> books = new HashMap<>();
 
     /* The constructor method */
     public BookCatalog() {}

@@ -1,6 +1,6 @@
 package term_project;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * Created by YeWenting on 2017/1/2.
@@ -10,7 +10,10 @@ public class CompositeBestForCustomer extends CompositeStrategy
     static final int MAX_TOTAL = 2014211519;
 
     /* The constructor method */
-    public CompositeBestForCustomer(String list, ArrayList<Integer> book) { super(list, book); }
+    public CompositeBestForCustomer(String list, HashSet<Integer> book, String ID, String name)
+    {
+        super(list, book, ID, name);
+    }
 
     @Override
     public double getSubTotal(SaleLineItem item)

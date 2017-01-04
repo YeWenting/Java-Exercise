@@ -7,18 +7,18 @@ import java.util.HashMap;
  */
 public class StrategyCatalog
 {
-    /* The data field */
-    private HashMap<String, PricingStrategy> strategies = new HashMap<String, PricingStrategy>();
+    /* Strategy ID -> Strategy data field*/
+    private HashMap<String, PricingStrategy> strategies = new HashMap<>();
 
     /* The constructor method */
     public StrategyCatalog() { }
 
     /* The control method */
-    public PricingStrategy get(String name) { return strategies.get(name); }
-    public PricingStrategy delete(String name) { return strategies.remove(name); }
-    public PricingStrategy add(String name, PricingStrategy strategy)
+    public PricingStrategy get(String ID) { return strategies.get(ID); }
+    public PricingStrategy delete(String ID) { return strategies.remove(ID); }
+    public PricingStrategy add(PricingStrategy strategy)
     {
-        strategies.put(name, strategy);
+        strategies.put(strategy.getID(), strategy);
         return strategy;
     }
 
@@ -29,6 +29,6 @@ public class StrategyCatalog
         {
             if (strategy.containsBook(type)) return strategy;
         }
-        return new NoDiscountStrategy();
+        return null;
     }
 }

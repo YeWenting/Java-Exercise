@@ -6,17 +6,19 @@
 package term_project;
 
 import javax.swing.*;
+import java.util.HashSet;
+
 
 /**
  *
  * @author YeWenting
  */
-public class AddBookUI extends javax.swing.JFrame {
+public class AddStrategyUI extends javax.swing.JFrame {
 
     /**
      * Creates new form AddBookUI
      */
-    public AddBookUI() {
+    public AddStrategyUI() {
         initComponents();
     }
 
@@ -34,30 +36,36 @@ public class AddBookUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         tName = new javax.swing.JTextField();
-        tISBN = new javax.swing.JTextField();
-        tPrice = new javax.swing.JTextField();
-        tType = new javax.swing.JTextField();
+        tID = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         bCancel = new javax.swing.JButton();
         bSubmit = new javax.swing.JButton();
+        tType = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        tParas = new javax.swing.JTextField();
+        Sunxiaoyu0 = new javax.swing.JCheckBox();
+        Sunxiaoyu1 = new javax.swing.JCheckBox();
+        Sunxiaoyu2 = new javax.swing.JCheckBox();
+        Sunxiaoyu3 = new javax.swing.JCheckBox();
+        Sunxiaoyu4 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(450, 520));
 
         jLabel1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 13)); // NOI18N
-        jLabel1.setText("ISBN号：");
+        jLabel1.setText("策略编号：");
         jLabel1.setSize(new java.awt.Dimension(0, 80));
 
         jLabel2.setFont(new java.awt.Font("Microsoft Tai Le", 1, 13)); // NOI18N
-        jLabel2.setText("书名：");
+        jLabel2.setText("策略名称：");
         jLabel2.setSize(new java.awt.Dimension(0, 80));
 
         jLabel3.setFont(new java.awt.Font("Microsoft Tai Le", 1, 13)); // NOI18N
-        jLabel3.setText("书籍类型：");
+        jLabel3.setText("策略类型：");
         jLabel3.setSize(new java.awt.Dimension(0, 80));
 
         jLabel4.setFont(new java.awt.Font("Microsoft Tai Le", 1, 13)); // NOI18N
-        jLabel4.setText("单价：");
+        jLabel4.setText("适用书籍：");
         jLabel4.setSize(new java.awt.Dimension(0, 80));
 
         tName.addActionListener(new java.awt.event.ActionListener() {
@@ -66,26 +74,14 @@ public class AddBookUI extends javax.swing.JFrame {
             }
         });
 
-        tISBN.addActionListener(new java.awt.event.ActionListener() {
+        tID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tISBNActionPerformed(evt);
-            }
-        });
-
-        tPrice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tPriceActionPerformed(evt);
-            }
-        });
-
-        tType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tTypeActionPerformed(evt);
+                tIDActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Microsoft Tai Le", 1, 48)); // NOI18N
-        jLabel5.setText("添加书籍");
+        jLabel5.setText("添加策略");
 
         bCancel.setFont(new java.awt.Font("Microsoft Tai Le", 0, 13)); // NOI18N
         bCancel.setText("取消");
@@ -103,68 +99,142 @@ public class AddBookUI extends javax.swing.JFrame {
             }
         });
 
+        tType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "绝对值优惠策略", "百分比优惠策略", "顾客最优策略", " " }));
+        tType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tTypeActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Microsoft Tai Le", 1, 13)); // NOI18N
+        jLabel6.setText("参数：");
+        jLabel6.setSize(new java.awt.Dimension(0, 80));
+
+        tParas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tParasActionPerformed(evt);
+            }
+        });
+
+        Sunxiaoyu0.setText("非教材计算机");
+        Sunxiaoyu0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Sunxiaoyu0ActionPerformed(evt);
+            }
+        });
+
+        Sunxiaoyu1.setText("教材类");
+        Sunxiaoyu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Sunxiaoyu1ActionPerformed(evt);
+            }
+        });
+
+        Sunxiaoyu2.setText("连环画");
+        Sunxiaoyu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Sunxiaoyu2ActionPerformed(evt);
+            }
+        });
+
+        Sunxiaoyu3.setText("养生类");
+        Sunxiaoyu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Sunxiaoyu3ActionPerformed(evt);
+            }
+        });
+
+        Sunxiaoyu4.setText("其他");
+        Sunxiaoyu4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Sunxiaoyu4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(78, 78, 78)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tName)
-                    .addComponent(tPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(tType, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(tISBN))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tName, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tParas, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tType, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Sunxiaoyu0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Sunxiaoyu2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Sunxiaoyu3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Sunxiaoyu1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Sunxiaoyu4))
+                        .addGap(6, 6, 6))
+                    .addComponent(tID, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(50, 50, 50))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(bCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(66, 66, 66)
-                    .addComponent(bSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(273, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(bSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tType, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
-                .addComponent(bCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(445, Short.MAX_VALUE)
-                    .addComponent(bSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(35, 35, 35)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(108, 108, 108))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(tID, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Sunxiaoyu0)
+                                .addGap(5, 5, 5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Sunxiaoyu2)
+                                    .addComponent(Sunxiaoyu3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Sunxiaoyu4, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Sunxiaoyu1)
+                                .addGap(63, 63, 63)
+                                .addComponent(tParas, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36))))
         );
 
         pack();
@@ -174,17 +244,9 @@ public class AddBookUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tNameActionPerformed
 
-    private void tISBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tISBNActionPerformed
+    private void tIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tISBNActionPerformed
-
-    private void tPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tPriceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tPriceActionPerformed
-
-    private void tTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tTypeActionPerformed
+    }//GEN-LAST:event_tIDActionPerformed
 
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
         this.dispose();
@@ -192,23 +254,55 @@ public class AddBookUI extends javax.swing.JFrame {
 
     private void bSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSubmitActionPerformed
         try{
-            String isbn = tISBN.getText();
-            double price = Double.parseDouble(tPrice.getText());
+            String ID = tID.getText();
             String name = tName.getText();
-            int type = Integer.parseInt(tType.getText());
-            if (isbn.equals("")) throw new Exception("ISBN号不能为空！");
-            if (name.equals("")) throw new Exception("书名不能为空！");
-            if (price <= 0 ) throw new Exception("价格不能为负数！");
-            if (type < 0 || type > 4) throw new Exception("类型号无效！");
+            HashSet<Integer> books = new HashSet<Integer>();
+            String paras = tParas.getText();
+            int type = tType.getSelectedIndex();
 
-            Controller.getInstance().addBook(isbn, price, name, type);
+            if (Sunxiaoyu0.isSelected()) books.add(ProductSpecification.NON_COMPUTER_TEXTBOOK);
+            if (Sunxiaoyu1.isSelected()) books.add(ProductSpecification.TEXTBOOK);
+            if (Sunxiaoyu2.isSelected()) books.add(ProductSpecification.COMIC_BOOK);
+            if (Sunxiaoyu3.isSelected()) books.add(ProductSpecification.HEALTHCARE_BOOK);
+            if (Sunxiaoyu4.isSelected()) books.add(ProductSpecification.OTHER_BOOK);
 
+            PricingStrategyFactory.getInstance().createPricingStrategy(type, paras, books, ID, name);
+
+            System.out.println(PricingStrategyFactory.getInstance().getPricingStrategy(ID));
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
 
         }
     }//GEN-LAST:event_bSubmitActionPerformed
+
+    private void tTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tTypeActionPerformed
+
+    private void tParasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tParasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tParasActionPerformed
+
+    private void Sunxiaoyu0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sunxiaoyu0ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Sunxiaoyu0ActionPerformed
+
+    private void Sunxiaoyu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sunxiaoyu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Sunxiaoyu1ActionPerformed
+
+    private void Sunxiaoyu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sunxiaoyu2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Sunxiaoyu2ActionPerformed
+
+    private void Sunxiaoyu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sunxiaoyu3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Sunxiaoyu3ActionPerformed
+
+    private void Sunxiaoyu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sunxiaoyu4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Sunxiaoyu4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,25 +321,31 @@ public class AddBookUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddBookUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddStrategyUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddBookUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddStrategyUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddBookUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddStrategyUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddBookUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddStrategyUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddBookUI().setVisible(true);
+                new AddStrategyUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox Sunxiaoyu0;
+    private javax.swing.JCheckBox Sunxiaoyu1;
+    private javax.swing.JCheckBox Sunxiaoyu2;
+    private javax.swing.JCheckBox Sunxiaoyu3;
+    private javax.swing.JCheckBox Sunxiaoyu4;
     private javax.swing.JButton bCancel;
     private javax.swing.JButton bSubmit;
     private javax.swing.JLabel jLabel1;
@@ -253,9 +353,10 @@ public class AddBookUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField tISBN;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField tID;
     private javax.swing.JTextField tName;
-    private javax.swing.JTextField tPrice;
-    private javax.swing.JTextField tType;
+    private javax.swing.JTextField tParas;
+    private javax.swing.JComboBox<String> tType;
     // End of variables declaration//GEN-END:variables
 }

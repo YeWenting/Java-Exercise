@@ -1,6 +1,6 @@
 package term_project;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * Created by YeWenting on 2017/1/2.
@@ -11,9 +11,9 @@ public class FlatRateStrategy extends PricingStrategy
     private double discountPerBook;
 
     /* The instructor method */
-    public FlatRateStrategy(double discount, ArrayList<Integer> book)
+    public FlatRateStrategy(double discount, HashSet<Integer> book, String ID, String name)
     {
-        super(book);
+        super(book, ID, name);
         discountPerBook = discount;
     }
 

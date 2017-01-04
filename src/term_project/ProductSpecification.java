@@ -12,6 +12,7 @@ public class ProductSpecification
     static public final int COMIC_BOOK = 2;
     static public final int HEALTHCARE_BOOK = 3;
     static public final int OTHER_BOOK = 4;
+    static public final String[] idxToStr = {"非教材类计算机图书", "教材类图书", "连环画类图书", "养生类图书", "其他"};
 
     /* The data field */
     private String isbn = null, title = null;
