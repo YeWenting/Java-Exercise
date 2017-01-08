@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package term_project;
+package homework7;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

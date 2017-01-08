@@ -1,4 +1,4 @@
-package term_project;
+package homework7;
 
 /**
  * Created by YeWenting on 2017/1/2.

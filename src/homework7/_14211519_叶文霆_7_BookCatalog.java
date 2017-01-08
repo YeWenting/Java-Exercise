@@ -1,4 +1,4 @@
-package term_project;
+package homework7;
 
 import java.util.HashMap;
 

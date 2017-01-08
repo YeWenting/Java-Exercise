@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package term_project;
+package homework7;
 
 import javax.swing.JOptionPane;
 import java.awt.Toolkit;
@@ -27,7 +27,7 @@ public class _14211519_叶文霆_7_MainUI extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
         String welcomeInfo = "助教您好！我是网络工程14班的叶文霆。\n\n我的程序在实现基本功能之外，还增加了异常输入处理\n" +
-                "类的设计也花了很多心思，欢迎查看:)。\n\nPS:为节省时间，已经录入书籍信息与优惠信息。";
+                "类的设计也花了很多心思，欢迎查看:)。\n\nPS:为节省时间，已经完成书籍信息与优惠信息的初始化。";
         if (init == 0){
             JOptionPane.showMessageDialog(null, welcomeInfo, "欢迎", JOptionPane.INFORMATION_MESSAGE);
             init = 1;
