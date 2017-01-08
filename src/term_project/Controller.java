@@ -1,6 +1,5 @@
 package term_project;
 
-import java.awt.print.Book;
 import java.util.HashSet;
 
 /**
@@ -17,14 +16,14 @@ public class Controller
     /* Singleton pattern */
     private Controller()
     {
-        // Initialize the data (as required)
-        addBook("978-7-302-2", 18, "《UML与模式应用》", 1);
-        addBook("978-7-312-3", 34, "《Java与模式》", 0);
-        addBook("968-6-302-1", 58, "《Headfirst设计模式》", 0);
-        addBook("958-1-302-2", 30, "《爱丽丝历险记》", 2);
-        addBook("900-7-392-2", 20, "《煲汤大全》", 3);
-
         try {
+            // Initialize the data (as required)
+            addBook("978-7-302-2", 18, "《UML与模式应用》", 1);
+            addBook("978-7-312-3", 34, "《Java与模式》", 0);
+            addBook("968-6-302-1", 58, "《Headfirst设计模式》", 0);
+            addBook("958-1-302-2", 30, "《爱丽丝历险记》", 2);
+            addBook("900-7-392-2", 20, "《煲汤大全》", 3);
+
             addStrategy(0, "1", new HashSet<Integer>(){{ add(1); }}, "Discount001", "绝对值优惠策略1");
             addStrategy(1, "7", new HashSet<Integer>(){{ add(2); }}, "Discount002", "百分比折扣策略1");
             addStrategy(1, "3", new HashSet<Integer>(){{ add(0); }}, "Discount003", "百分比折扣策略2");
@@ -47,10 +46,13 @@ public class Controller
      *  The Book Management Wrapper
      */
     public void addBook(String isbn, double price, String title, int type)
+        throws Exception
     {
-        PricingStrategy strategy = factory.getStrategyOfBook(type);
         ProductSpecification book = new ProductSpecification(isbn, price, title, type);
-        bookCatalog.add(book);
+
+        if (bookCatalog.get(book.getISBN()) != null)
+            throw new Exception("本书已经存在！");
+        else bookCatalog.add(book);
     }
 
     public String[][] getAllBooksInfo() { return bookCatalog.getAllData(); }
