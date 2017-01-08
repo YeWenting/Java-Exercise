@@ -1,41 +1,36 @@
 package term_project;
 
-import javafx.beans.binding.IntegerBinding;
-import javafx.beans.binding.ObjectExpression;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 
 /**
  * Created by YeWenting on 2017/1/2.
  */
 
-public class PricingStrategyFactory
+public class _14211519_叶文霆_7_PricingStrategyFactory
 {
     /* The data field */
-    private static PricingStrategyFactory instance;
-    private StrategyCatalog catalog;
+    private static _14211519_叶文霆_7_PricingStrategyFactory instance;
+    private _14211519_叶文霆_7_StrategyCatalog catalog;
 
     /* The private constructor */
-    private PricingStrategyFactory() { catalog = new StrategyCatalog(); }
+    private _14211519_叶文霆_7_PricingStrategyFactory() { catalog = new _14211519_叶文霆_7_StrategyCatalog(); }
 
     /* The instance getter wrapper */
-    static public PricingStrategyFactory getInstance()
+    static public _14211519_叶文霆_7_PricingStrategyFactory getInstance()
     {
         if (null == instance)
-            instance = new PricingStrategyFactory();
+            instance = new _14211519_叶文霆_7_PricingStrategyFactory();
          return instance;
     }
 
     /* The catalog access wrapper */
-    public PricingStrategy getStrategyOfBook(int type) { return catalog.getStrategyOfBook(type); }
-    public PricingStrategy getPricingStrategy(String ID) { return catalog.get(ID); }
-    public PricingStrategy removePricingStrategy(String ID) { return catalog.remove(ID); }
+    public _14211519_叶文霆_7_PricingStrategy getStrategyOfBook(int type) { return catalog.getStrategyOfBook(type); }
+    public _14211519_叶文霆_7_PricingStrategy getPricingStrategy(String ID) { return catalog.get(ID); }
+    public _14211519_叶文霆_7_PricingStrategy removePricingStrategy(String ID) { return catalog.remove(ID); }
     public String[][] getAllStratetiesInfo() { return catalog.getAllData(); }
 
     /* The factory pattern method */
-    public PricingStrategy createPricingStrategy(int type, Object paras, HashSet<Integer> booktype, String ID, String name)
+    public _14211519_叶文霆_7_PricingStrategy createPricingStrategy(int type, Object paras, HashSet<Integer> booktype, String ID, String name)
         throws Exception
     {
         /* Check the strategy exists */
@@ -45,30 +40,30 @@ public class PricingStrategyFactory
         /* Check if the book type has been bound */
         for (int i : booktype)
             if (!catalog.getStrategyOfBook(i).getType().equals("无优惠"))
-                throw new Exception(ProductSpecification.idxToStr[i] + "已被绑定！");
+                throw new Exception(_14211519_叶文霆_7_ProductSpecification.idxToStr[i] + "已被绑定！");
 
         /* Create the strategy */
-        PricingStrategy temp = null;
+        _14211519_叶文霆_7_PricingStrategy temp = null;
         switch (type)
         {
-            case IPricingStrategy.FLATRATE:
-                temp = catalog.add(new FlatRateStrategy(Double.parseDouble(paras.toString()), booktype, ID, name));
+            case _14211519_叶文霆_7_IPricingStrategy.FLATRATE:
+                temp = catalog.add(new _14211519_叶文霆_7_FlatRateStrategy(Double.parseDouble(paras.toString()), booktype, ID, name));
                 break;
 
-            case IPricingStrategy.PERCENTAGE:
-                temp = catalog.add(new PercentageStrategy(Integer.parseInt(paras.toString()), booktype, ID, name));
+            case _14211519_叶文霆_7_IPricingStrategy.PERCENTAGE:
+                temp = catalog.add(new _14211519_叶文霆_7_PercentageStrategy(Integer.parseInt(paras.toString()), booktype, ID, name));
                 break;
 
-            case IPricingStrategy.COMPOSITE:
+            case _14211519_叶文霆_7_IPricingStrategy.COMPOSITE:
                 // Check Validity
                 String[] list = paras.toString().split("\\|");
                 for (String strategyID : list)
                     if (catalog.get(strategyID) == null) throw new Exception("输入的简单策略编号无效！");
-                temp = catalog.add(new CompositeBestForCustomer(list, booktype, ID, name));
+                temp = catalog.add(new _14211519_叶文霆_7_CompositeBestForCustomer(list, booktype, ID, name));
                 break;
 
-            case IPricingStrategy.NODISCOUNT:
-                temp = catalog.add(new NoDiscountStrategy());
+            case _14211519_叶文霆_7_IPricingStrategy.NODISCOUNT:
+                temp = catalog.add(new _14211519_叶文霆_7_NoDiscountStrategy());
                 break;
 
             default:

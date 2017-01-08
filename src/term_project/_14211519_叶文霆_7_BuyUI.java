@@ -11,17 +11,17 @@ import javax.swing.*;
  *
  * @author YeWenting
  */
-public class BuyUI extends javax.swing.JFrame {
+public class _14211519_叶文霆_7_BuyUI extends javax.swing.JFrame {
 
     /* The controller "pointer" */
-    Controller controller = Controller.getInstance();
-    ShoppingCartUI shoppingCartUI = new ShoppingCartUI();
-    Sale sale = controller.getSale();
+    _14211519_叶文霆_7_Controller controller = _14211519_叶文霆_7_Controller.getInstance();
+    _14211519_叶文霆_7_ShoppingCartUI shoppingCartUI = new _14211519_叶文霆_7_ShoppingCartUI();
+    _14211519_叶文霆_7_Sale sale = controller.getSale();
 
     /**
      * Creates new form StrategiesUI
      */
-    public BuyUI()
+    public _14211519_叶文霆_7_BuyUI()
     {
         sale.registerObserver(shoppingCartUI);
         initComponents();
@@ -161,7 +161,7 @@ public class BuyUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
-        new MainUI().setVisible(true);
+        new _14211519_叶文霆_7_MainUI().setVisible(true);
         shoppingCartUI.dispose();
         this.dispose();
     }//GEN-LAST:event_bCancelActionPerformed

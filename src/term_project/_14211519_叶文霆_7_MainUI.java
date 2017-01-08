@@ -13,16 +13,27 @@ import java.awt.Dimension;
  *
  * @author YeWenting
  */
-public class MainUI extends javax.swing.JFrame {
+public class _14211519_叶文霆_7_MainUI extends javax.swing.JFrame {
 
     /* The controller "pointer" */
-    Controller controller = Controller.getInstance();
+    _14211519_叶文霆_7_Controller controller = _14211519_叶文霆_7_Controller.getInstance();
+    private static int init = 0;
 
     /**
      * Creates new form StrategiesUI
      */
-    public MainUI() {
+    public _14211519_叶文霆_7_MainUI() {
+
         initComponents();
+        setVisible(true);
+        String welcomeInfo = "助教您好！我是网络工程14班的叶文霆。\n\n我的程序在实现基本功能之外，还增加了异常输入处理\n" +
+                "类的设计也花了很多心思，欢迎查看:)。\n\nPS:为节省时间，已经录入书籍信息与优惠信息。";
+        if (init == 0){
+            JOptionPane.showMessageDialog(null, welcomeInfo, "欢迎", JOptionPane.INFORMATION_MESSAGE);
+            init = 1;
+        }
+
+
     }
 
     @SuppressWarnings("unchecked")
@@ -126,12 +137,12 @@ public class MainUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuyActionPerformed
-        new AddBookUI().setVisible(true);
+        new _14211519_叶文霆_7_AddBookUI().setVisible(true);
         dispose();
     }
 
     private void bStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuyActionPerformed
-        new StrategiesUI().setVisible(true);
+        new _14211519_叶文霆_7_StrategiesUI().setVisible(true);
         dispose();
     }
 
@@ -141,7 +152,7 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_bExitActionPerformed
 
     private void bBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuyActionPerformed
-        new BuyUI().setVisible(true);
+        new _14211519_叶文霆_7_BuyUI().setVisible(true);
         dispose();
     }//GEN-LAST:event_bBuyActionPerformed
 
@@ -158,19 +169,19 @@ public class MainUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(_14211519_叶文霆_7_MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(_14211519_叶文霆_7_MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(_14211519_叶文霆_7_MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(_14211519_叶文霆_7_MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainUI().setVisible(true);
+                new _14211519_叶文霆_7_MainUI();
             }
         });
     }

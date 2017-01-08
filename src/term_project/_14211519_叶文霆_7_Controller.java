@@ -5,16 +5,16 @@ import java.util.HashSet;
 /**
  * Created by YeWenting on 2017/1/3.
  */
-public class Controller
+public class _14211519_叶文霆_7_Controller
 {
     /* The book catalog data field */
-    private BookCatalog bookCatalog = new BookCatalog();
-    private static Controller instance;
-    private PricingStrategyFactory factory = PricingStrategyFactory.getInstance();
-    private Sale sale = new Sale();
+    private _14211519_叶文霆_7_BookCatalog bookCatalog = new _14211519_叶文霆_7_BookCatalog();
+    private static _14211519_叶文霆_7_Controller instance;
+    private _14211519_叶文霆_7_PricingStrategyFactory factory = _14211519_叶文霆_7_PricingStrategyFactory.getInstance();
+    private _14211519_叶文霆_7_Sale sale = new _14211519_叶文霆_7_Sale();
 
     /* Singleton pattern */
-    private Controller()
+    private _14211519_叶文霆_7_Controller()
     {
         try {
             // Initialize the data (as required)
@@ -35,10 +35,10 @@ public class Controller
             // There won't be an Exception
         }
     }
-    public static Controller getInstance()
+    public static _14211519_叶文霆_7_Controller getInstance()
     {
         if (instance == null)
-            instance = new Controller();
+            instance = new _14211519_叶文霆_7_Controller();
         return instance;
     }
 
@@ -48,7 +48,7 @@ public class Controller
     public void addBook(String isbn, double price, String title, int type)
         throws Exception
     {
-        ProductSpecification book = new ProductSpecification(isbn, price, title, type);
+        _14211519_叶文霆_7_ProductSpecification book = new _14211519_叶文霆_7_ProductSpecification(isbn, price, title, type);
 
         if (bookCatalog.get(book.getISBN()) != null)
             throw new Exception("本书已经存在！");
@@ -59,28 +59,28 @@ public class Controller
 
     public String[][] getAllStrategiesInfo() { return factory.getAllStratetiesInfo(); }
 
-    public PricingStrategy deleteStrategy(String ID) { return factory.removePricingStrategy(ID); }
+    public _14211519_叶文霆_7_PricingStrategy deleteStrategy(String ID) { return factory.removePricingStrategy(ID); }
 
-    public PricingStrategy addStrategy(int type, String paras, HashSet<Integer> books, String ID, String name)
+    public _14211519_叶文霆_7_PricingStrategy addStrategy(int type, String paras, HashSet<Integer> books, String ID, String name)
         throws Exception
     {
         return factory.createPricingStrategy(type, paras, books, ID, name);
     }
 
-    public PricingStrategy updateStrategy(int type, String paras, HashSet<Integer> books, String ID, String name)
+    public _14211519_叶文霆_7_PricingStrategy updateStrategy(int type, String paras, HashSet<Integer> books, String ID, String name)
         throws Exception
     {
         factory.removePricingStrategy(ID);
         return factory.createPricingStrategy(type, paras, books, ID, name);
     }
 
-    public SaleLineItem buyBook(String ISBN, int num)
+    public _14211519_叶文霆_7_SaleLineItem buyBook(String ISBN, int num)
         throws Exception
     {
-        ProductSpecification bookInfo = bookCatalog.get(ISBN);
+        _14211519_叶文霆_7_ProductSpecification bookInfo = bookCatalog.get(ISBN);
         if (bookInfo == null) throw new Exception("ISBN号无效");
-        return sale.add(new SaleLineItem(num, bookInfo, factory.getStrategyOfBook(bookInfo.getType())));
+        return sale.add(new _14211519_叶文霆_7_SaleLineItem(num, bookInfo, factory.getStrategyOfBook(bookInfo.getType())));
     }
 
-    public Sale getSale() { return sale; }
+    public _14211519_叶文霆_7_Sale getSale() { return sale; }
 }

@@ -11,9 +11,9 @@ import java.awt.*;
  *
  * @author YeWenting
  */
-public class ShoppingCartUI extends javax.swing.JFrame implements Observer{
+public class _14211519_叶文霆_7_ShoppingCartUI extends javax.swing.JFrame implements _14211519_叶文霆_7_Observer {
 
-    public ShoppingCartUI()
+    public _14211519_叶文霆_7_ShoppingCartUI()
     {
         initComponents();
     }
@@ -118,7 +118,7 @@ public class ShoppingCartUI extends javax.swing.JFrame implements Observer{
         dispose();
     }//GEN-LAST:event_bCancelActionPerformed
 
-    public void update(Sale sale)
+    public void update(_14211519_叶文霆_7_Sale sale)
     {
         String[][] rowsData = sale.getCartInfo();
         double totalCost = sale.getTotal();

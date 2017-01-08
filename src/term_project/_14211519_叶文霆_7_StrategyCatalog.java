@@ -5,25 +5,25 @@ import java.util.HashMap;
 /**
  * Created by YeWenting on 2017/1/2.
  */
-public class StrategyCatalog
+public class _14211519_叶文霆_7_StrategyCatalog
 {
     /* The constant field */
     public static final String[] idxToStr = {"绝对值优惠策略", "百分比优惠策略", "顾客最优策略"};
 
     /* Strategy ID -> Strategy data field */
-    private HashMap<String, PricingStrategy> strategies = new HashMap<>();
+    private HashMap<String, _14211519_叶文霆_7_PricingStrategy> strategies = new HashMap<>();
 
     /* The constructor method */
-    public StrategyCatalog() { }
+    public _14211519_叶文霆_7_StrategyCatalog() { }
 
     /* The control method */
-    public PricingStrategy get(String ID) { return strategies.get(ID); }
+    public _14211519_叶文霆_7_PricingStrategy get(String ID) { return strategies.get(ID); }
 
-    public PricingStrategy remove(String ID) { return strategies.remove(ID); }
+    public _14211519_叶文霆_7_PricingStrategy remove(String ID) { return strategies.remove(ID); }
 
     public int size() { return strategies.size(); }
 
-    public PricingStrategy add(PricingStrategy strategy)
+    public _14211519_叶文霆_7_PricingStrategy add(_14211519_叶文霆_7_PricingStrategy strategy)
     {
         strategies.put(strategy.getID(), strategy);
         return strategy;
@@ -34,7 +34,7 @@ public class StrategyCatalog
         int i = 0;
         String[][] data = new String[strategies.size()][];
 
-        for (PricingStrategy strategy : strategies.values()) {
+        for (_14211519_叶文霆_7_PricingStrategy strategy : strategies.values()) {
             data[i] = new String[]{
                     strategy.getID(),
                     strategy.getName(),
@@ -49,12 +49,12 @@ public class StrategyCatalog
     }
 
     /* The book-discount answer method */
-    public PricingStrategy getStrategyOfBook(int type)
+    public _14211519_叶文霆_7_PricingStrategy getStrategyOfBook(int type)
     {
-        for (PricingStrategy strategy : strategies.values())
+        for (_14211519_叶文霆_7_PricingStrategy strategy : strategies.values())
         {
             if (strategy.containsBook(type)) return strategy;
         }
-        return new NoDiscountStrategy();
+        return new _14211519_叶文霆_7_NoDiscountStrategy();
     }
 }

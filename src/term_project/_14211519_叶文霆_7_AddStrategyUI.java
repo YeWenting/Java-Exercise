@@ -14,12 +14,12 @@ import java.util.HashSet;
  *
  * @author YeWenting
  */
-public class AddStrategyUI extends javax.swing.JFrame {
+public class _14211519_叶文霆_7_AddStrategyUI extends javax.swing.JFrame {
 
     /* The controller "pointer" */
-    Controller controller = Controller.getInstance();
+    _14211519_叶文霆_7_Controller controller = _14211519_叶文霆_7_Controller.getInstance();
 
-    public AddStrategyUI() {
+    public _14211519_叶文霆_7_AddStrategyUI() {
         System.out.println(1);
         initComponents();
     }
@@ -197,15 +197,15 @@ public class AddStrategyUI extends javax.swing.JFrame {
             String paras = tParas.getText();
             int type = tType.getSelectedIndex();
 
-            if (cType0.isSelected()) books.add(ProductSpecification.NON_COMPUTER_TEXTBOOK);
-            if (cType1.isSelected()) books.add(ProductSpecification.TEXTBOOK);
-            if (cType2.isSelected()) books.add(ProductSpecification.COMIC_BOOK);
-            if (cType3.isSelected()) books.add(ProductSpecification.HEALTHCARE_BOOK);
-            if (cType4.isSelected()) books.add(ProductSpecification.OTHER_BOOK);
+            if (cType0.isSelected()) books.add(_14211519_叶文霆_7_ProductSpecification.NON_COMPUTER_TEXTBOOK);
+            if (cType1.isSelected()) books.add(_14211519_叶文霆_7_ProductSpecification.TEXTBOOK);
+            if (cType2.isSelected()) books.add(_14211519_叶文霆_7_ProductSpecification.COMIC_BOOK);
+            if (cType3.isSelected()) books.add(_14211519_叶文霆_7_ProductSpecification.HEALTHCARE_BOOK);
+            if (cType4.isSelected()) books.add(_14211519_叶文霆_7_ProductSpecification.OTHER_BOOK);
 
             controller.addStrategy(type, paras, books, ID, name);
 
-            System.out.println(PricingStrategyFactory.getInstance().getPricingStrategy(ID));
+            System.out.println(_14211519_叶文霆_7_PricingStrategyFactory.getInstance().getPricingStrategy(ID));
             this.dispose();
 
         }

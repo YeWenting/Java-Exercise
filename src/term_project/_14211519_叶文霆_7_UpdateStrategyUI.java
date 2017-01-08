@@ -14,15 +14,15 @@ import java.util.HashSet;
  *
  * @author YeWenting
  */
-public class UpdateStrategyUI extends javax.swing.JFrame {
+public class _14211519_叶文霆_7_UpdateStrategyUI extends javax.swing.JFrame {
 
     /* The controller "pointer" */
-    Controller controller = Controller.getInstance();
+    _14211519_叶文霆_7_Controller controller = _14211519_叶文霆_7_Controller.getInstance();
 
     /**
      * Creates new form AddBookUI
      */
-    public UpdateStrategyUI(String ID) {
+    public _14211519_叶文霆_7_UpdateStrategyUI(String ID) {
         initComponents(ID);
     }
 
@@ -264,15 +264,15 @@ public class UpdateStrategyUI extends javax.swing.JFrame {
             String paras = tParas.getText();
             int type = tType.getSelectedIndex();
 
-            if (Sunxiaoyu0.isSelected()) books.add(ProductSpecification.NON_COMPUTER_TEXTBOOK);
-            if (Sunxiaoyu1.isSelected()) books.add(ProductSpecification.TEXTBOOK);
-            if (Sunxiaoyu2.isSelected()) books.add(ProductSpecification.COMIC_BOOK);
-            if (Sunxiaoyu3.isSelected()) books.add(ProductSpecification.HEALTHCARE_BOOK);
-            if (Sunxiaoyu4.isSelected()) books.add(ProductSpecification.OTHER_BOOK);
+            if (Sunxiaoyu0.isSelected()) books.add(_14211519_叶文霆_7_ProductSpecification.NON_COMPUTER_TEXTBOOK);
+            if (Sunxiaoyu1.isSelected()) books.add(_14211519_叶文霆_7_ProductSpecification.TEXTBOOK);
+            if (Sunxiaoyu2.isSelected()) books.add(_14211519_叶文霆_7_ProductSpecification.COMIC_BOOK);
+            if (Sunxiaoyu3.isSelected()) books.add(_14211519_叶文霆_7_ProductSpecification.HEALTHCARE_BOOK);
+            if (Sunxiaoyu4.isSelected()) books.add(_14211519_叶文霆_7_ProductSpecification.OTHER_BOOK);
 
             controller.updateStrategy(type, paras, books, ID, name);
 
-            System.out.println(PricingStrategyFactory.getInstance().getPricingStrategy(ID));
+            System.out.println(_14211519_叶文霆_7_PricingStrategyFactory.getInstance().getPricingStrategy(ID));
             JOptionPane.showMessageDialog(null, "修改成功！", "成功", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
         }
@@ -327,13 +327,13 @@ public class UpdateStrategyUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UpdateStrategyUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(_14211519_叶文霆_7_UpdateStrategyUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UpdateStrategyUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(_14211519_叶文霆_7_UpdateStrategyUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UpdateStrategyUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(_14211519_叶文霆_7_UpdateStrategyUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UpdateStrategyUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(_14211519_叶文霆_7_UpdateStrategyUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -343,7 +343,7 @@ public class UpdateStrategyUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UpdateStrategyUI("123").setVisible(true);
+                new _14211519_叶文霆_7_UpdateStrategyUI("123").setVisible(true);
             }
         });
     }

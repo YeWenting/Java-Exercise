@@ -5,17 +5,15 @@
  */
 package term_project;
 
-import sun.applet.Main;
-
 import javax.swing.*;
 
 /**
  *
  * @author YeWenting
  */
-public class AddBookUI extends javax.swing.JFrame {
+public class _14211519_叶文霆_7_AddBookUI extends javax.swing.JFrame {
 
-    public AddBookUI() {
+    public _14211519_叶文霆_7_AddBookUI() {
         initComponents();
     }
 
@@ -142,7 +140,7 @@ public class AddBookUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
-        new MainUI().setVisible(true);
+        new _14211519_叶文霆_7_MainUI().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bCancelActionPerformed
 
@@ -156,10 +154,10 @@ public class AddBookUI extends javax.swing.JFrame {
             if (name.equals("")) throw new Exception("书名不能为空！");
             if (price <= 0 ) throw new Exception("价格不能为负数！");
 
-            Controller.getInstance().addBook(isbn, price, name, type);
+            _14211519_叶文霆_7_Controller.getInstance().addBook(isbn, price, name, type);
 
             JOptionPane.showMessageDialog(null, "添加成功！", "成功", JOptionPane.INFORMATION_MESSAGE);
-            new MainUI().setVisible(true);
+            new _14211519_叶文霆_7_MainUI().setVisible(true);
             this.dispose();
         }
         catch (Exception e){

@@ -5,8 +5,6 @@
  */
 package term_project;
 
-import sun.applet.Main;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -14,12 +12,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author YeWenting
  */
-public class StrategiesUI extends javax.swing.JFrame {
+public class _14211519_叶文霆_7_StrategiesUI extends javax.swing.JFrame {
 
     /* The controller "pointer" */
-    Controller controller = Controller.getInstance();
+    _14211519_叶文霆_7_Controller controller = _14211519_叶文霆_7_Controller.getInstance();
 
-    public StrategiesUI() {
+    public _14211519_叶文霆_7_StrategiesUI() {
         initComponents();
     }
 
@@ -195,7 +193,7 @@ public class StrategiesUI extends javax.swing.JFrame {
 
             String ID = tStrategies.getValueAt(strategyIdx, 0).toString();
 
-            new UpdateStrategyUI(ID).setVisible(true);
+            new _14211519_叶文霆_7_UpdateStrategyUI(ID).setVisible(true);
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
@@ -207,12 +205,12 @@ public class StrategiesUI extends javax.swing.JFrame {
     }//GEN-LAST:event_bReloadActionPerformed
 
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
-        new MainUI().setVisible(true);
+        new _14211519_叶文霆_7_MainUI().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bCancelActionPerformed
 
     private void bAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdd1ActionPerformed
-        new AddStrategyUI().setVisible(true);
+        new _14211519_叶文霆_7_AddStrategyUI().setVisible(true);
     }//GEN-LAST:event_bAdd1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

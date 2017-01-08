@@ -5,20 +5,20 @@ import java.util.HashSet;
 /**
  * Created by YeWenting on 2017/1/2.
  */
-public class FlatRateStrategy extends PricingStrategy
+public class _14211519_叶文霆_7_FlatRateStrategy extends _14211519_叶文霆_7_PricingStrategy
 {
     /* The data field */
     private double discountPerBook;
 
     /* The instructor method */
-    public FlatRateStrategy(double discount, HashSet<Integer> book, String ID, String name)
+    public _14211519_叶文霆_7_FlatRateStrategy(double discount, HashSet<Integer> book, String ID, String name)
     {
         super(book, ID, name);
         discountPerBook = discount;
     }
 
     @Override
-    public double getSubTotal(SaleLineItem item)
+    public double getSubTotal(_14211519_叶文霆_7_SaleLineItem item)
     {
         return item.getCopies() * (item.getProdSpec().getPrice() - discountPerBook);
     }

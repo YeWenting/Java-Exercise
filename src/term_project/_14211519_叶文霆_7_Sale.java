@@ -5,19 +5,19 @@ import java.util.ArrayList;
 /**
  * Created by YeWenting on 2017/1/3.
  */
-public class Sale implements Subject
+public class _14211519_叶文霆_7_Sale implements _14211519_叶文霆_7_Subject
 {
     /* The data field */
-    private ArrayList<SaleLineItem> items = new ArrayList<>();
+    private ArrayList<_14211519_叶文霆_7_SaleLineItem> items = new ArrayList<>();
 
     /* The observer pattern */
-    ArrayList<Observer> observers = new ArrayList<>();
+    ArrayList<_14211519_叶文霆_7_Observer> observers = new ArrayList<>();
 
     /* The constructor method */
-    public Sale() {}
+    public _14211519_叶文霆_7_Sale() {}
 
     /* The shopping method */
-    public SaleLineItem add(SaleLineItem item)
+    public _14211519_叶文霆_7_SaleLineItem add(_14211519_叶文霆_7_SaleLineItem item)
     {
         items.add(item);
         notifyObservers();
@@ -27,7 +27,7 @@ public class Sale implements Subject
     public double getTotal()
     {
         double temp = 0;
-        for (SaleLineItem item : items)
+        for (_14211519_叶文霆_7_SaleLineItem item : items)
             temp += item.getSubTotal();
         return temp;
     }
@@ -38,7 +38,7 @@ public class Sale implements Subject
 
         for (int i = 0; i < items.size(); i++)
         {
-            SaleLineItem item = items.get(i);
+            _14211519_叶文霆_7_SaleLineItem item = items.get(i);
             double oldPrice = item.getCopies() * item.getProdSpec().getPrice();
             double discount = oldPrice - item.getSubTotal();
 
@@ -55,18 +55,18 @@ public class Sale implements Subject
 
     /* The Subject method */
     @Override
-    public void registerObserver(Observer observer) {
+    public void registerObserver(_14211519_叶文霆_7_Observer observer) {
         observers.add(observer);
     }
 
     @Override
-    public void removeObserver(Observer observer) {
+    public void removeObserver(_14211519_叶文霆_7_Observer observer) {
         observers.remove(observer);
     }
 
     @Override
     public void notifyObservers() {
-        for (Observer observer : observers) {
+        for (_14211519_叶文霆_7_Observer observer : observers) {
             observer.update(this);
         }
     }

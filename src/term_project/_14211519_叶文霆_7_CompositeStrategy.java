@@ -6,14 +6,14 @@ import java.util.HashSet;
 /**
  * Created by YeWenting on 2017/1/2.
  */
-abstract public class CompositeStrategy extends PricingStrategy
+abstract public class _14211519_叶文霆_7_CompositeStrategy extends _14211519_叶文霆_7_PricingStrategy
 {
     /* The data field */
     protected ArrayList<String> strategies = new ArrayList<String>();
 
     /* The constructor method */
-    public CompositeStrategy() {}
-    public CompositeStrategy(String[] list, HashSet<Integer> book, String ID, String name)
+    public _14211519_叶文霆_7_CompositeStrategy() {}
+    public _14211519_叶文霆_7_CompositeStrategy(String[] list, HashSet<Integer> book, String ID, String name)
     {
         super(book, ID, name);
         for (String strategyName : list)

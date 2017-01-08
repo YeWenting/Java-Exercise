@@ -3,7 +3,7 @@ package term_project;
 /**
  * Created by YeWenting on 2017/1/2.
  */
-public class ProductSpecification
+public class _14211519_叶文霆_7_ProductSpecification
 {
     /* The constant field */
     static public final int NON_EXIST = -1;
@@ -20,8 +20,8 @@ public class ProductSpecification
     private int type = NON_EXIST;
 
     /* The constructor method */
-    public ProductSpecification() {}
-    public ProductSpecification(String isbn, double price, String title, int type)
+    public _14211519_叶文霆_7_ProductSpecification() {}
+    public _14211519_叶文霆_7_ProductSpecification(String isbn, double price, String title, int type)
     {
         this.isbn = isbn;
         this.price = price;
